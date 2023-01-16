@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/generalFragmentGrid">
+    <fragment
+        android:id="@+id/generalFragmentGrid"
+        android:name="com.example.danscalendar.GeneralFragmentGrid"
+        android:label="GeneralFragmentGrid" >
+        <action
+            android:id="@+id/action_generalFragmentGrid_to_fullPhotoFragment"
+            app:destination="@id/fullPhotoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullPhotoFragment"
+        android:name="com.example.danscalendar.FullPhotoFragment"
+        android:label="fragment_full_photo"
+        tools:layout="@layout/fragment_full_photo" />
+</navigation>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DANs calendar</string>
+    <string name="with_love_adelya">with love, Adelya</string>
+    <string name="advents_calendar">(Not so) Christmas calendar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
