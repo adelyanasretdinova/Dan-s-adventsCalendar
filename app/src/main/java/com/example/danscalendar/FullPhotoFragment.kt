@@ -24,7 +24,7 @@ class FullPhotoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Glide
             .with(this)
-            .load(getArguments()?.getString("photo"))
+            .load(getArguments()?.getInt("photo"))
             .into(binding.fullScreenPhotoFragment)
 
     }

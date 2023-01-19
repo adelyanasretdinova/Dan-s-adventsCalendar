@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.danscalendar.databinding.ItemboxBinding
 
 class GridAdapter(
     private val context: Context,
@@ -18,16 +20,6 @@ class GridAdapter(
     private lateinit var imageView: ImageView
     var onItemClick: ((DayNumberWithPhoto) -> Unit)? = null
 
-//    inner class ViewHolder(private val binding: ItemboxBinding) : RecyclerView.ViewHolder(binding.root) {
-//
-//
-//        init {
-//
-//            binding.image.setOnClickListener {
-//                onItemClick?.invoke(dayList[adapterPosition])
-//            }
-//        }
-//    }
 
     override fun getCount(): Int {
         return dayList.size
@@ -42,19 +34,17 @@ class GridAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var view:View = LayoutInflater.from(context).inflate( R.layout.itembox,parent, false)
-        imageView = view.findViewById(R.id.image)
-        textView = view.findViewById(R.id.textNumber)
+//        var view:View = LayoutInflater.from(context).inflate( R.layout.itembox,parent, false)
+        var binding = ItemboxBinding.inflate(LayoutInflater.from(context), parent, false)
         var listItem:DayNumberWithPhoto = dayList[position]
 
+        binding.image.setOnClickListener {
+            onItemClick?.invoke(dayList[position])
+        }
+        binding.image.setImageResource(listItem.dailyImg)
+        binding.textNumber.text = listItem.day
 
-            imageView.setOnClickListener {
-                onItemClick?.invoke(dayList[position])
-            }
-        imageView.setImageResource(listItem.dailyImg)
-        textView.text = listItem.day
 
-
-        return view
+        return binding.root
     }
 }
